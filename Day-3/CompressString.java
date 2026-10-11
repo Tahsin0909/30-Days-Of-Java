@@ -2,30 +2,30 @@
 
 public class CompressString {
 
-    public static String compreessString(String str) {
+    public static StringBuilder compreessString(String str) {
         String trimInput = str.trim();
-        String result = "";
+        StringBuilder result = new StringBuilder();
         int count = 0;
-        for (int i = 0; i < trimInput.length(); i++) {
+        for (int i = 1; i < trimInput.length(); i++) {
             char temp = trimInput.charAt(i);
-            char next = trimInput.charAt(i);
-            if (i + 1 < trimInput.length()) {
-                System.out.println(next);
-                next = trimInput.charAt(i + 1);
-            }
+            char next = trimInput.charAt(i + 1);
+            System.out.println(temp);
+            // System.out.println(next);
             if (temp == next) {
                 count++;
             } else {
-                result = result + temp + count;
+                count++;
+                result.append(temp);
+                result.append(count);
                 count = 0;
             }
         }
-        result = result + trimInput.charAt(trimInput.length() - 1) + count;
         return result;
     }
 
     public static void main(String[] args) {
-        String input = " aaabbcccc";
+        String input = " aaab";
         System.out.println("Final Output: " + compreessString(input));
     }
 }
+
